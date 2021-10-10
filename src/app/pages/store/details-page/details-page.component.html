@@ -1,0 +1,16 @@
+<!-- This is the modal -->
+
+
+<button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+<div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid [(ngModel)]="package">
+  <div class="uk-background-cover" *ngIf="package.image" [ngStyle]="{'background-image': 'url(' + package.image + ')'}"
+    uk-height-viewport></div>
+  <div class="uk-padding-large">
+    <h1>{{package.name}}</h1>
+    <p class="uk-text-uppercase">{{package.type}}</p>
+    <p>{{package.about}}</p>
+    <p class="uk-text-italic">Endereço: <strong> {{package.address}}</strong></p>
+    <p>E-mail: <strong>{{package.email}}</strong></p>
+    <p>Phone: <strong>{{package.phone}}</strong></p>
+  </div>
+</div>

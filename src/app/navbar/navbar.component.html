@@ -1,0 +1,38 @@
+<div class="uk-box-shadow-large uk-sticky-fixed">
+  <div class="uk-container">
+    <nav class="uk-navbar-container uk-navbar-transparent uk-margin " uk-navbar="mode: click">
+      <div class="uk-navbar-left">
+        <a href="#" class="uk-navbar-item uk-logo">
+          <img src="../../assets/logo_small_150 .png" alt="" class="uk-margin-small-right">
+        </a>
+      </div>
+      <div class="uk-navbar-right">
+        <ul class="uk-text-emphasis  uk-navbar-nav">
+          <li class="uk-active"><a href="#">
+              Inicio
+            </a></li>
+          <li>
+            <a [routerLink]="['/']" routerLinkActive="uk-text-bold">Pacotes</a>            
+          </li>
+          <li>
+            <a [routerLink]="['/account/favorites']" routerLinkActive="uk-text-bold">Favoritos</a>            
+          </li>
+          <li><a [routerLink]="['/cart']" routerLinkActive="uk-text-bold">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon:cart"></span>
+              <span class="uk-badge">0</span>
+            </a></li>
+          <li>
+            <a href="#">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
