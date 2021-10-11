@@ -2,7 +2,9 @@
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
-        <li class="uk-active"><H1>Meus Favoritos</H1></li>
+        <li class="uk-active">
+          <H1>Meus Favoritos</H1>
+        </li>
       </ul>
     </div>
     <div class="uk-navbar-right">
@@ -20,7 +22,7 @@
 
   <div class="uk-container">
     <div class="uk-grid uk-margin-small-top" *ngIf="!isloading">
-      <div class="uk-width-1-2 uk-margin-small-bottom"  *ngFor="let item of fav?.items">
+      <div class="uk-width-1-2 uk-margin-small-bottom" *ngFor="let item of fav?.items">
         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
           <div class="uk-card-media-left uk-cover-container">
             <img src="{{item.image}}" alt="" uk-cover>
@@ -33,19 +35,17 @@
               <p><strong>E-mail: </strong>{{item.email}}</p>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
     </div>
-  </div> 
+  </div>
+</div>
 
-
-
-
-<div class="uk-container" *ngIf="cart?.items.length == 0">
+<div class="uk-container" *ngIf="fav?.items.length == 0">
   <br>
   <br>
   <br>
-  <p class="uk-text-center"><em>Seu carrinho está vazio</em></p>
+  <p class="uk-text-center"><em>Você esta sem favoritos :( </em></p>
   <br>
   <br>
   <br>
