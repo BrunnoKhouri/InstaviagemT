@@ -1,33 +1,52 @@
-<div class="uk-container uk-margin-large-top">
+<div class="uk-container uk-margin-large-top" *ngIf="fav?.items.length > 0">
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
-        <li class="uk-active"><h3>Meus Favoritos</h3></li>
+        <li class="uk-active"><H1>Meus Favoritos</H1></li>
       </ul>
     </div>
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li class="uk-active">
-          <a href="#">
+          <a (click)="clear()">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: close"></span>
-            Limpar 
+            Limpar favoritos
           </a>
         </li>
       </ul>
     </div>
   </nav>
   <br><br>
-</div>
-<div class="uk-container">
-  <div class="uk-grid-small" uk-grid>
-    <div class="uk-width-expand" uk-leader>
-      <img src="https://picsum.photos/200" class="uk-align-left" alt="" width="64" height="64">
-      <a href="">Quadeebo Hotel</a>
+
+  <div class="uk-container">
+    <div class="uk-grid uk-margin-small-top" *ngIf="!isloading">
+      <div class="uk-width-1-2 uk-margin-small-bottom"  *ngFor="let item of fav?.items">
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+          <div class="uk-card-media-left uk-cover-container">
+            <img src="{{item.image}}" alt="" uk-cover>
+            <canvas width="600" height="400"></canvas>
+          </div>
+          <div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">{{item.name}}</h3>
+              <p><strong>{{item.type}}</strong></p>
+              <p><strong>E-mail: </strong>{{item.email}}</p>
+            </div>
+          </div>
+        </div>        
+      </div>
     </div>
-    <div>       
-      <a href="" class="uk-burron uk-button-link uk-align-right">
-        <span class="uk-icon" uk-icon="icon: close"></span>
-      </a>
-    </div>
-  </div>  
+  </div> 
+
+
+
+
+<div class="uk-container" *ngIf="cart?.items.length == 0">
+  <br>
+  <br>
+  <br>
+  <p class="uk-text-center"><em>Seu carrinho está vazio</em></p>
+  <br>
+  <br>
+  <br>
 </div>

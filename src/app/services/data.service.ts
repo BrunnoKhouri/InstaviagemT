@@ -16,13 +16,6 @@ export class DataService {
 
   getPackages() {
     return this.http.get<Package[]>(`${this.url}`);
-  } 
-
-  readById(id: string): Observable<Package>{
-    const url = `${this.url}/${id}`;
-    return this.http.get<Package>(url).pipe(
-      map((obj) => obj)
-    );
-  }
+  }   
  
 }

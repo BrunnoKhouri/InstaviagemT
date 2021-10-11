@@ -1,29 +1,25 @@
+<div class="uk-container uk-margin-medium-top" style="display: flex;
+justify-content: center;">
+  <form class="example-form">
+    <mat-form-field class="example-full-width" style="width: 450px;" appearance="fill">
+      <mat-label>Pesquise seu pacote</mat-label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let package of packages$ | async" [value]="package">
+          {{package.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
 <div class="uk-container">
-  <div class="uk-grid uk-margin-small-top" *ngIf="!isloading">
-    <div class="uk-width-1-2 uk-margin-small-bottom"  *ngFor="let package of packages$ | async">
-        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-          <div class="uk-card-media-left uk-cover-container">
-            <img src="{{package.image}}" alt="" uk-cover>
-            <canvas width="600" height="400"></canvas>
-          </div>
-          <div>
-            <div class="uk-card-body">
-              <h3 class="uk-card-title">{{package.name}}</h3>
-              <p>A partir de <strong>{{package.price}}</strong></p>
-              <p>{{package.address}}</p>              
-              <a class="uk-margin-small-bottom" routerLink="datails/{{package._id}}" uk-toggle>Detalhes</a> <br><br>
-              <button class="uk-button uk-button uk-button-default"  [disabled]="package.isActive == false">
-                <span class="uk-icon uk-margin-small-bottom" uk-icon="icon: cart" >
-                  Adicionar                  
-                </span>
-              </button>
-              <button class="uk-button uk-button-link uk-margin-small-left"><span uk-icon="heart"></span></button>
-             
-            </div>
-          </div>
-        </div>        
-    </div>  
+  <div class="uk-grid uk-margin-small-top">
+    <div class="uk-container">
+      <div class="uk-grid uk-margin-small-top" *ngIf="!isloading">
+        <div class="uk-width-1-2 uk-margin-small-bottom" *ngFor="let package of packages$ | async" >
+          <app-package-card  [package]="package">{{package.name}}</app-package-card>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-

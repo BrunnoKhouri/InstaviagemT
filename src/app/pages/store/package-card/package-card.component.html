@@ -1,0 +1,21 @@
+<div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+  <div class="uk-card-media-left uk-cover-container">
+    <img src="{{package.image}}" alt="" uk-cover>
+    <canvas width="600" height="400"></canvas>
+  </div>
+  <div>
+    <div class="uk-card-body">
+      <h3 class="uk-card-title">{{package.name}}</h3>
+      <p>{{package.type}}</p>
+      <p><strong>{{package.price | currency: 'BRL' }}</strong></p>
+      <p>{{package.address}}</p>              
+      <a  (click)="navigateToDetailsPage(package)">Detalhes</a> <br><br>
+      <button class="uk-button uk-button uk-button-default" (click)="addToCart()"  [disabled]="package.isActive == false">
+        <span  class="uk-icon uk-margin-small-bottom" uk-icon="icon: cart">
+          Adicionar                  
+        </span>
+      </button>
+      <button (click)="addToFavorite()" class="uk-button uk-button-link uk-margin-small-left"><mat-icon aria-hidden="false" aria-label="Example home icon" [ngClass]="{'favorite': IsAdd == true}">favorite</mat-icon></button>     
+    </div>
+  </div>
+</div> 

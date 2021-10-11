@@ -1,0 +1,19 @@
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+img{
+    width: 300px;
+    border-radius: 25%;
+}
