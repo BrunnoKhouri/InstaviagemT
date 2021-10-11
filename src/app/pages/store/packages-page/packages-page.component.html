@@ -17,7 +17,7 @@ justify-content: center;">
     <div class="uk-container">
       <div class="uk-grid uk-margin-small-top" *ngIf="!isloading">
         <div class="uk-width-1-2 uk-margin-small-bottom" *ngFor="let package of packages$ | async" >
-          <app-package-card  [package]="package">{{package.name}}</app-package-card>
+          <app-package-card  [package]="package"></app-package-card>
         </div>
       </div>
     </div>

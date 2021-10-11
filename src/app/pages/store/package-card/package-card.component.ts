@@ -4,6 +4,7 @@ import { CartUtil } from 'src/app/utils/cart.util';
 import { DetailsPageComponent } from '../details-page/details-page.component';
 import { MatDialog } from '@angular/material';
 import { FavoriteUtil } from 'src/app/utils/favorite.util';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-package-card',
@@ -12,7 +13,7 @@ import { FavoriteUtil } from 'src/app/utils/favorite.util';
 })
 export class PackageCardComponent implements OnInit {
 @Input() package: Package
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private service: DataService) { }
 
   public IsAdd: boolean = false;
   ngOnInit() {
@@ -33,7 +34,9 @@ export class PackageCardComponent implements OnInit {
       1,
       this.package.image,
       this.package.price     
-    )    
+    )
+    this.service.showMessage('Pacote adicionado com sucesso!')
+    
   }
 
   addToFavorite() {
@@ -47,6 +50,7 @@ export class PackageCardComponent implements OnInit {
       this.package.price     
     )
     this.IsAdd = true
+    this.service.showMessage('Favoritado <3')
   }  
 
 }

@@ -28,11 +28,7 @@ export class PackagesPageComponent implements OnInit {
   }
   
   ngOnInit() {    
-    this.packages$ = this.myControl.valueChanges.pipe(
-        startWith(EMPTY_STRING),
-        map(value => typeof value === 'string' ? value : value.name),
-        map(name => name ? this._filter(name) : this.options)
-    );
+    this.filterPackage()
     this.loading();
     
   }
@@ -50,6 +46,14 @@ export class PackagesPageComponent implements OnInit {
   private loading(): void {
    this.packages$ = this.service.getPackages();
    this.isLoading = false;
+  }
+
+  private filterPackage(): void{
+    this.packages$ = this.myControl.valueChanges.pipe(
+      startWith(EMPTY_STRING),
+      map(value => typeof value === 'string' ? value : value.name),
+      map(name => name ? this._filter(name) : this.options)
+  );
   }
 
 }
